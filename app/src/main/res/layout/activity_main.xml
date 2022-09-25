@@ -3,33 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/cardview_dark_background"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="64dp"
+        android:layout_marginStart="6dp"
         android:layout_marginEnd="5dp"
         android:fontFamily="sans-serif-medium"
-        android:gravity="right"
+        android:gravity="start"
         android:maxLength="10"
-        android:text="0"
-        android:textColor="@android:color/primary_text_light"
+        android:text="@string/_0"
+        android:textColor="@color/result"
         android:textDirection="rtl"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/minus"
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginEnd="6dp"
-        android:background="@drawable/num_buttons"
+        android:background="@drawable/symbol_buttons"
         android:fontFamily="sans-serif-medium"
-        android:text="-"
+        android:text="@string/minus_symbol"
+        android:textColor="@color/button_text"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/plus"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,12 +42,14 @@
 
     <Button
         android:id="@+id/plus"
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="0dp"
         android:layout_height="128dp"
         android:layout_marginEnd="6dp"
-        android:background="@drawable/num_buttons"
+        android:background="@drawable/symbol_buttons"
         android:fontFamily="sans-serif-light"
-        android:text="+"
+        android:text="@string/plus_symbol"
+        android:textColor="@color/button_text"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/equal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,13 +57,15 @@
 
     <Button
         android:id="@+id/equal"
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_width="0dp"
         android:layout_height="128dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="6dp"
-        android:background="@drawable/num_buttons"
+        android:background="@drawable/symbol_buttons"
         android:fontFamily="sans-serif-light"
-        android:text="="
+        android:text="@string/equal_symbol"
+        android:textColor="@color/button_text"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,32 +88,38 @@
 
             <Button
                 android:id="@+id/button16"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
-                android:background="@drawable/num_buttons"
+                android:background="@drawable/symbol_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="C"
+                android:text="@string/clear"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button15"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
-                android:background="@drawable/num_buttons"
+                android:background="@drawable/symbol_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="/"
+                android:text="@string/devision_symbol"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/button14"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
-                android:background="@drawable/num_buttons"
+                android:background="@drawable/symbol_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="*"
+                android:text="@string/multiply_symbol"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
         </TableRow>
@@ -115,32 +130,38 @@
 
             <Button
                 android:id="@+id/seven"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="7"
+                android:text="@string/_7"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/eight"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="8"
+                android:text="@string/_8"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/nine"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="9"
+                android:text="@string/_9"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
         </TableRow>
@@ -151,32 +172,38 @@
 
             <Button
                 android:id="@+id/four"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="4"
+                android:text="@string/_4"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/five"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="5"
+                android:text="@string/_5"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/six"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="6"
+                android:text="@string/_6"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
         </TableRow>
@@ -187,32 +214,38 @@
 
             <Button
                 android:id="@+id/one"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="1"
+                android:text="@string/_1"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/two"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="2"
+                android:text="@string/_2"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/three"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="3"
+                android:text="@string/_3"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
         </TableRow>
@@ -223,32 +256,39 @@
 
             <Button
                 android:id="@+id/signChange"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="(-1)"
+                android:text="@string/minus_one"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
                 android:id="@+id/zero"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="0"
-                android:textSize="24sp" />
+                android:text="@string/_0"
+                android:textColor="@color/button_text"
+                android:textSize="24sp"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button
                 android:id="@+id/point"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/decimal_separator"
+                android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
         </TableRow>

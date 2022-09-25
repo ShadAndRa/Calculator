@@ -12,8 +12,8 @@
     <color name="orange">#FFA500</color>
     <color name="golden">#FFD700</color>
     <color name="num_buttons">#66FFFFFF</color>
-    <color name="symbol_buttons">#66B8B8B8</color>
-    <color name="main_background">@color/white</color>
-    <color name="result">@color/dark_gray</color>
-    <color name="button_text">@color/teal_700</color>
+    <color name="symbol_buttons">#66333333</color>
+    <color name="main_background">@color/dark_gray</color>
+    <color name="result">@color/teal_200</color>
+    <color name="button_text">@color/white</color>
 </resources>
