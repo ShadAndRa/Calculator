@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView outputField;
 
-    private boolean decimalSeparatorPresent = false;
-
     private boolean dividePressed = false;
     private boolean multiplyPressed = false;
     private boolean minusPressed = false;
@@ -83,39 +81,38 @@ public class MainActivity extends AppCompatActivity {
         if (outputField.getText().toString().equals("0"))
             switch (view.getId()){
                 case R.id.decimal_separator:
-                    if (!decimalSeparatorPresent){
-                        outputField.append(getResources().getString(R.string.decimal_separator));
-                        decimalSeparatorPresent = true;
+                    if (!outputField.getText().toString().contains(getString(R.string.decimal_separator))){
+                        outputField.append(getString(R.string.decimal_separator));
                     }
                     break;
                 case R.id.zero:
                     break;
                 case R.id.one:
-                    outputField.setText(getResources().getString(R.string._1));
+                    outputField.setText(getString(R.string._1));
                     break;
                 case R.id.two:
-                    outputField.setText(getResources().getString(R.string._2));
+                    outputField.setText(getString(R.string._2));
                     break;
                 case R.id.three:
-                    outputField.setText(getResources().getString(R.string._3));
+                    outputField.setText(getString(R.string._3));
                     break;
                 case R.id.four:
-                    outputField.setText(getResources().getString(R.string._4));
+                    outputField.setText(getString(R.string._4));
                     break;
                 case R.id.five:
-                    outputField.setText(getResources().getString(R.string._5));
+                    outputField.setText(getString(R.string._5));
                     break;
                 case R.id.six:
-                    outputField.setText(getResources().getString(R.string._6));
+                    outputField.setText(getString(R.string._6));
                     break;
                 case R.id.seven:
-                    outputField.setText(getResources().getString(R.string._7));
+                    outputField.setText(getString(R.string._7));
                     break;
                 case R.id.eight:
-                    outputField.setText(getResources().getString(R.string._8));
+                    outputField.setText(getString(R.string._8));
                     break;
                 case R.id.nine:
-                    outputField.setText(getResources().getString(R.string._9));
+                    outputField.setText(getString(R.string._9));
                     break;
                 default:
                     break;
@@ -123,40 +120,42 @@ public class MainActivity extends AppCompatActivity {
         else
             switch (view.getId()){
                 case R.id.decimal_separator:
-                    if (!decimalSeparatorPresent){
-                        outputField.append(getResources().getString(R.string.decimal_separator));
-                        decimalSeparatorPresent = true;
+                    if (!outputField.getText().toString().contains(getString(R.string.decimal_separator))) {
+                        outputField.append(getString(R.string.decimal_separator));
+                    }
+                    else {
+                        outputField.setText(outputField.getText().toString().replace(getString(R.string.decimal_separator), ""));
                     }
                     break;
                 case R.id.zero:
-                    outputField.append(getResources().getString(R.string._0));
+                    outputField.append(getString(R.string._0));
                     break;
                 case R.id.one:
-                    outputField.append(getResources().getString(R.string._1));
+                    outputField.append(getString(R.string._1));
                     break;
                 case R.id.two:
-                    outputField.append(getResources().getString(R.string._2));
+                    outputField.append(getString(R.string._2));
                     break;
                 case R.id.three:
-                    outputField.append(getResources().getString(R.string._3));
+                    outputField.append(getString(R.string._3));
                     break;
                 case R.id.four:
-                    outputField.append(getResources().getString(R.string._4));
+                    outputField.append(getString(R.string._4));
                     break;
                 case R.id.five:
-                    outputField.append(getResources().getString(R.string._5));
+                    outputField.append(getString(R.string._5));
                     break;
                 case R.id.six:
-                    outputField.append(getResources().getString(R.string._6));
+                    outputField.append(getString(R.string._6));
                     break;
                 case R.id.seven:
-                    outputField.append(getResources().getString(R.string._7));
+                    outputField.append(getString(R.string._7));
                     break;
                 case R.id.eight:
-                    outputField.append(getResources().getString(R.string._8));
+                    outputField.append(getString(R.string._8));
                     break;
                 case R.id.nine:
-                    outputField.append(getResources().getString(R.string._9));
+                    outputField.append(getString(R.string._9));
                     break;
                 default:
                     break;
@@ -164,11 +163,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickClear(View view){
-        outputField.setText(getResources().getString(R.string._0));
+        outputField.setText(getString(R.string._0));
         operand1 = 0.0;
         operand2 = 0.0;
         result = 0.0;
-        decimalSeparatorPresent = false;
         dividePressed = false;
         multiplyPressed = false;
         minusPressed = false;
@@ -177,10 +175,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickNegative(View view){
         if (!outputField.getText().toString().equals("0")) {
-            if (!outputField.getText().toString().endsWith(getResources().getString(R.string.minus_symbol)))
-                outputField.append(getResources().getString(R.string.minus_symbol));
+            if (!outputField.getText().toString().startsWith(getString(R.string.minus_symbol)))
+                outputField.setText(getString(R.string.minus_symbol) + outputField.getText().toString());
             else
-                outputField.setText(outputField.getText().toString().replace(getResources().getString(R.string.minus_symbol), ""));
+                outputField.setText(outputField.getText().toString().replace(getString(R.string.minus_symbol), ""));
         }
     }
 }
