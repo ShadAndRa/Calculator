@@ -65,7 +65,7 @@
         android:layout_marginBottom="6dp"
         android:background="@drawable/symbol_buttons"
         android:fontFamily="sans-serif-light"
-        android:onClick="onClickOperand"
+        android:onClick="onClickEqual"
         android:text="@string/equal_symbol"
         android:textColor="@color/button_text"
         android:textSize="48sp"
