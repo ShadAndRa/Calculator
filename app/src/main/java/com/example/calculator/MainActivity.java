@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,9 +42,10 @@ public class MainActivity extends AppCompatActivity {
     private boolean minusPressed = false;
     private boolean plusPressed = false;
 
-    private double operand1;
-    private double operand2;
-    private double result;
+    private double result = 0;
+    private double last_operand = 0;
+
+    final private DecimalFormat format = new DecimalFormat("0.########");
 
     public MainActivity() {
     }
@@ -164,9 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickClear(View view){
         outputField.setText(getString(R.string._0));
-        operand1 = 0.0;
-        operand2 = 0.0;
-        result = 0.0;
         dividePressed = false;
         multiplyPressed = false;
         minusPressed = false;
@@ -179,6 +180,150 @@ public class MainActivity extends AppCompatActivity {
                 outputField.setText(getString(R.string.minus_symbol) + outputField.getText().toString());
             else
                 outputField.setText(outputField.getText().toString().replace(getString(R.string.minus_symbol), ""));
+        }
+    }
+
+    public void onClickOperand(View view){
+        switch (view.getId()){
+            case R.id.equal:
+                if(plusPressed)
+                    onClickOperand(plus);
+                if(minusPressed)
+                    onClickOperand(minus);
+                if(multiplyPressed)
+                    onClickOperand(multiply);
+                if(dividePressed)
+                    onClickOperand(divide);
+
+                outputField.setText(String.valueOf(format.format(result)));
+                break;
+            case R.id.plus:
+                if(minusPressed) {
+                    onClickOperand(minus);
+                    onClickClear(fieldReset);
+                    plusPressed = true;
+                    break;
+                }
+                if(multiplyPressed) {
+                    onClickOperand(multiply);
+                    onClickClear(fieldReset);
+                    plusPressed = true;
+                    break;
+                }
+                if(dividePressed) {
+                    onClickOperand(divide);
+                    onClickClear(fieldReset);
+                    plusPressed = true;
+                    break;
+                }
+
+                if(plusPressed){
+                    result = result + Double.parseDouble(outputField.getText().toString());
+                    onClickClear(fieldReset);
+                    plusPressed = true;
+                    break;
+                }
+                result = Double.parseDouble(outputField.getText().toString());
+                onClickClear(fieldReset);
+                plusPressed = true;
+                break;
+            case R.id.minus:
+                if(plusPressed) {
+                    onClickOperand(plus);
+                    onClickClear(fieldReset);
+                    minusPressed = true;
+                    break;
+                }
+                if(multiplyPressed) {
+                    onClickOperand(multiply);
+                    onClickClear(fieldReset);
+                    minusPressed = true;
+                    break;
+                }
+                if(dividePressed) {
+                    onClickOperand(divide);
+                    onClickClear(fieldReset);
+                    minusPressed = true;
+                    break;
+                }
+
+                if(minusPressed){
+                    result = result - Double.parseDouble(outputField.getText().toString());
+                    onClickClear(fieldReset);
+                    minusPressed = true;
+                    break;
+                }
+                result = Double.parseDouble(outputField.getText().toString());
+                onClickClear(fieldReset);
+                minusPressed = true;
+                break;
+            case R.id.multiplication:
+                if(plusPressed) {
+                    onClickOperand(plus);
+                    onClickClear(fieldReset);
+                    multiplyPressed = true;
+                    break;
+                }
+                if(minusPressed) {
+                    onClickOperand(minus);
+                    onClickClear(fieldReset);
+                    multiplyPressed = true;
+                    break;
+                }
+                if(dividePressed) {
+                    onClickOperand(divide);
+                    onClickClear(fieldReset);
+                    multiplyPressed = true;
+                    break;
+                }
+
+                if(multiplyPressed){
+                    result = result * Double.parseDouble(outputField.getText().toString());
+                    onClickClear(fieldReset);
+                    multiplyPressed = true;
+                    break;
+                }
+                result = Double.parseDouble(outputField.getText().toString());
+                onClickClear(fieldReset);
+                multiplyPressed = true;
+                break;
+            case R.id.division:
+                if(plusPressed) {
+                    onClickOperand(plus);
+                    onClickClear(fieldReset);
+                    dividePressed = true;
+                    break;
+                }
+                if(minusPressed) {
+                    onClickOperand(minus);
+                    onClickClear(fieldReset);
+                    dividePressed = true;
+                    break;
+                }
+                if(multiplyPressed) {
+                    onClickOperand(multiply);
+                    onClickClear(fieldReset);
+                    dividePressed = true;
+                    break;
+                }
+
+                if(dividePressed){
+                    if(Double.parseDouble(outputField.getText().toString()) != 0) {
+                        result = result / Double.parseDouble(outputField.getText().toString());
+                        onClickClear(fieldReset);
+                        dividePressed = true;
+                    }
+                    else {
+                        Toast.makeText(this, R.string.division_by_zero, Toast.LENGTH_LONG).show();
+                        result = 0;
+                        onClickClear(fieldReset);
+                    }
+                    break;
+                }
+                result = Double.parseDouble(outputField.getText().toString());
+                onClickClear(fieldReset);
+                dividePressed = true;
+                break;
         }
     }
 }
