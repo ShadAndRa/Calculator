@@ -5,9 +5,9 @@
     <string name="plus_symbol">+</string>
     <string name="minus_symbol">-</string>
     <string name="multiply_symbol">*</string>
-    <string name="devision_symbol">/</string>
+    <string name="division_symbol">/</string>
     <string name="clear">C</string>
-    <string name="minus_one">(-1)</string>
+    <string name="negative_sign">(-1)</string>
     <string name="_0">0</string>
     <string name="_1">1</string>
     <string name="_2">2</string>

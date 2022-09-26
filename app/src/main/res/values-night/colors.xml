@@ -14,6 +14,6 @@
     <color name="num_buttons">#66FFFFFF</color>
     <color name="symbol_buttons">#66333333</color>
     <color name="main_background">@color/dark_gray</color>
-    <color name="result">@color/teal_200</color>
+    <color name="output_field">@color/teal_200</color>
     <color name="button_text">@color/white</color>
 </resources>

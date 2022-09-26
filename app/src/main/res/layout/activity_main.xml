@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/result"
+        android:id="@+id/output_field"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_marginStart="6dp"
@@ -17,7 +17,7 @@
         android:gravity="start"
         android:maxLength="10"
         android:text="@string/_0"
-        android:textColor="@color/result"
+        android:textColor="@color/output_field"
         android:textDirection="rtl"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
@@ -87,31 +87,32 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/clear"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/symbol_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickClear"
                 android:text="@string/clear"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/division"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/symbol_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/devision_symbol"
+                android:text="@string/division_symbol"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/multiplication"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
@@ -136,6 +137,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_7"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -148,6 +150,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_8"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -160,6 +163,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_9"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -178,6 +182,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_4"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -190,6 +195,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_5"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -202,6 +208,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_6"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -220,6 +227,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_1"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -232,6 +240,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_2"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -244,6 +253,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_3"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -255,14 +265,15 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/signChange"
+                android:id="@+id/negative_sign"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/minus_one"
+                android:onClick="onClickNegative"
+                android:text="@string/negative_sign"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
 
@@ -274,19 +285,21 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/_0"
                 android:textColor="@color/button_text"
                 android:textSize="24sp"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button
-                android:id="@+id/point"
+                android:id="@+id/decimal_separator"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
+                android:onClick="onClickNum"
                 android:text="@string/decimal_separator"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
