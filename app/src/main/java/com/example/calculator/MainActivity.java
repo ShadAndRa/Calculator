@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     int[] numbers;
     int a = R.id.zero;
+    final int maxNumLen = 10;
 
     public MainActivity() {
     }
@@ -44,21 +45,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickNum(View view){
-        if (outputField.getText().toString().equals("0"))
-            outputField.setText("");
-        for (int i:numbers){
-            if (i == view.getId()){
-                outputField.append(((Button) view).getText());
+        int maxLen = maxNumLen;
+        if (outputField.getText().toString().contains(getString(R.string.minus_symbol)))
+            maxLen++;
+        if (outputField.getText().toString().contains(getString(R.string.decimal_separator)))
+            maxLen++;
+        if (outputField.getText().toString().length() < maxLen ){
+            if (outputField.getText().toString().equals("0"))
+                outputField.setText("");
+            for (int i:numbers){
+                if (i == view.getId()){
+                    outputField.append(((Button) view).getText());
+                }
             }
         }
     }
 
     public void onClickPoint(View view){
-        if (!outputField.getText().toString().contains(getString(R.string.decimal_separator))) {
-            outputField.append(getString(R.string.decimal_separator));
-        }
-        else {
-            outputField.setText(outputField.getText().toString().replace(getString(R.string.decimal_separator), ""));
+        int maxLen = maxNumLen;
+        if (outputField.getText().toString().contains(getString(R.string.minus_symbol)))
+            maxLen++;
+        if (outputField.getText().toString().length() < maxLen ){
+            if (!outputField.getText().toString().contains(getString(R.string.decimal_separator))) {
+                outputField.append(getString(R.string.decimal_separator));
+            }
+            else {
+                outputField.setText(outputField.getText().toString().replace(getString(R.string.decimal_separator), ""));
+            }
         }
     }
 
