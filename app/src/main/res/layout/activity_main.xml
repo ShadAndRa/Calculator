@@ -32,7 +32,6 @@
         android:layout_marginEnd="6dp"
         android:background="@drawable/symbol_buttons"
         android:fontFamily="sans-serif-medium"
-        android:onClick="onClickOperand"
         android:text="@string/minus_symbol"
         android:textColor="@color/button_text"
         android:textSize="24sp"
@@ -48,7 +47,6 @@
         android:layout_marginEnd="6dp"
         android:background="@drawable/symbol_buttons"
         android:fontFamily="sans-serif-light"
-        android:onClick="onClickOperand"
         android:text="@string/plus_symbol"
         android:textColor="@color/button_text"
         android:textSize="48sp"
@@ -65,7 +63,6 @@
         android:layout_marginBottom="6dp"
         android:background="@drawable/symbol_buttons"
         android:fontFamily="sans-serif-light"
-        android:onClick="onClickEqual"
         android:text="@string/equal_symbol"
         android:textColor="@color/button_text"
         android:textSize="48sp"
@@ -109,7 +106,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/symbol_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:onClick="onClickOperand"
                 android:text="@string/division_symbol"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -122,7 +118,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/symbol_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:onClick="onClickOperand"
                 android:text="@string/multiply_symbol"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
@@ -303,7 +298,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/num_buttons"
                 android:fontFamily="sans-serif-medium"
-                android:onClick="onClickNum"
+                android:onClick="onClickPoint"
                 android:text="@string/decimal_separator"
                 android:textColor="@color/button_text"
                 android:textSize="24sp" />
