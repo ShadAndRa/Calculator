@@ -11,8 +11,8 @@
     <color name="dark_gray">#FF424242</color>
     <color name="orange">#FFA500</color>
     <color name="golden">#FFD700</color>
-    <color name="num_buttons">#66FFFFFF</color>
-    <color name="symbol_buttons">#66333333</color>
+    <color name="num_buttons">#66222222</color>
+    <color name="symbol_buttons">#66FFFFFF</color>
     <color name="main_background">@color/dark_gray</color>
     <color name="output_field">@color/teal_200</color>
     <color name="button_text">@color/white</color>
