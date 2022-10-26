@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        outputField  = (TextView) findViewById(R.id.output_field);
+        outputField  = findViewById(R.id.output_field);
         numbers = new int[] {
                 R.id.zero,
                 R.id.one,
@@ -39,9 +39,13 @@ public class MainActivity extends AppCompatActivity {
         calculator.decimalSeparator();
     }
     public void onClickClear(View view) {
-        calculator.clear();
+        calculator.resetAll();
     }
     public void onClickNegative(View view) {
         calculator.negativeSign();
+    }
+
+    public void onClickOperator(View view) {
+        calculator.calculation(view);
     }
 }
