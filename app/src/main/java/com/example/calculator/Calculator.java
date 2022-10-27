@@ -97,213 +97,219 @@ public class Calculator {
         }
     }
 
-    public void calculation(View view) {
-        if (view.getId() == R.id.equal){
-            switch (equalCounter){
-                case NOT_USED:
-                    if (plusCounter.equals(clickCounter.USED)) {
-                        equalCounter = clickCounter.USED;
-                        secondOperand = Double.parseDouble(outputField.getText().toString());
-                        result = firstOperand + secondOperand;
-                        outputField.setText(format.format(result).replace(',', '.'));
-                    }
-                    if (minusCounter.equals(clickCounter.USED)) {
-                        equalCounter = clickCounter.USED;
-                        secondOperand = Double.parseDouble(outputField.getText().toString());
-                        result = firstOperand - secondOperand;
-                        outputField.setText(format.format(result).replace(',', '.'));
-                    }
-                    if (multiplyCounter.equals(clickCounter.USED)) {
-                        equalCounter = clickCounter.USED;
-                        secondOperand = Double.parseDouble(outputField.getText().toString());
-                        result = firstOperand * secondOperand;
-                        outputField.setText(format.format(result).replace(',', '.'));
-                    }
-                    if (divisionCounter.equals(clickCounter.USED)) {
-                        equalCounter = clickCounter.USED;
-                        secondOperand = Double.parseDouble(outputField.getText().toString());
-                        result = firstOperand / secondOperand;
-                        outputField.setText(format.format(result).replace(',', '.'));
-                    }
-                    break;
-                case USED:
-                    if (plusCounter.equals(clickCounter.USED)) {
-                        firstOperand = result;
-                        result = firstOperand + secondOperand;
-                        outputField.setText(format.format(result).replace(',', '.'));
-                    }
-                    if (minusCounter.equals(clickCounter.USED)) {
-                        firstOperand = result;
-                        result = firstOperand - secondOperand;
-                        outputField.setText(format.format(result).replace(',', '.'));
-                    }
-                    if (multiplyCounter.equals(clickCounter.USED)) {
-                        firstOperand = result;
-                        result = firstOperand * secondOperand;
-                        outputField.setText(format.format(result).replace(',', '.'));
-                    }
-                    if (divisionCounter.equals(clickCounter.USED)) {
-                        firstOperand = result;
-                        result = firstOperand / secondOperand;
-                        outputField.setText(format.format(result).replace(',', '.'));
-                    }
-                    break;
-            }
-        }
-        if (view.getId() == R.id.plus){
-            if (equalCounter.equals(clickCounter.USED)) {
-                resetCounters();
-            }
-            if (minusCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand - secondOperand;
-                firstOperand = result;
-                resetAll();
-                plusCounter = clickCounter.USED;
-            }
-            else if (multiplyCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand * secondOperand;
-                firstOperand = result;
-                resetAll();
-                plusCounter = clickCounter.USED;
-            }
-            else if (divisionCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand / secondOperand;
-                firstOperand = result;
-                resetAll();
-                plusCounter = clickCounter.USED;
-            }
-
-            else switch (plusCounter){
-                case NOT_USED:
-                    plusCounter = clickCounter.USED;
-                    firstOperand = Double.parseDouble(outputField.getText().toString());
-                    clearField();
-                    break;
-                case USED:
+    public void equalBtn() {
+        switch (equalCounter) {
+            case NOT_USED:
+                if (plusCounter.equals(clickCounter.USED)) {
+                    equalCounter = clickCounter.USED;
                     secondOperand = Double.parseDouble(outputField.getText().toString());
                     result = firstOperand + secondOperand;
-                    firstOperand = result;
-                    clearField();
-                    break;
-            }
-        }
-        if (view.getId() == R.id.minus){
-            if (equalCounter.equals(clickCounter.USED))
-                resetCounters();
-            if (plusCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand + secondOperand;
-                firstOperand = result;
-                resetAll();
-                minusCounter = clickCounter.USED;
-            }
-            else if (multiplyCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand * secondOperand;
-                firstOperand = result;
-                resetAll();
-                minusCounter = clickCounter.USED;
-            }
-            else if (divisionCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand / secondOperand;
-                firstOperand = result;
-                resetAll();
-                minusCounter = clickCounter.USED;
-            }
-            else switch (minusCounter){
-                case NOT_USED:
-                    minusCounter = clickCounter.USED;
-                    firstOperand = Double.parseDouble(outputField.getText().toString());
-                    clearField();
-                    break;
-                case USED:
+                    outputField.setText(format.format(result).replace(',', '.'));
+                }
+                if (minusCounter.equals(clickCounter.USED)) {
+                    equalCounter = clickCounter.USED;
                     secondOperand = Double.parseDouble(outputField.getText().toString());
                     result = firstOperand - secondOperand;
-                    firstOperand = result;
-                    clearField();
-                    break;
-            }
-        }
-        if (view.getId() == R.id.multiplication){
-            if (equalCounter.equals(clickCounter.USED))
-                resetCounters();
-            if (plusCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand + secondOperand;
-                firstOperand = result;
-                resetAll();
-                multiplyCounter = clickCounter.USED;
-            }
-            else if (minusCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand - secondOperand;
-                firstOperand = result;
-                resetAll();
-                multiplyCounter = clickCounter.USED;
-            }
-            else if (divisionCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand / secondOperand;
-                firstOperand = result;
-                resetAll();
-                multiplyCounter = clickCounter.USED;
-            }
-            else switch (multiplyCounter){
-                case NOT_USED:
-                    multiplyCounter = clickCounter.USED;
-                    firstOperand = Double.parseDouble(outputField.getText().toString());
-                    clearField();
-                    break;
-                case USED:
+                    outputField.setText(format.format(result).replace(',', '.'));
+                }
+                if (multiplyCounter.equals(clickCounter.USED)) {
+                    equalCounter = clickCounter.USED;
                     secondOperand = Double.parseDouble(outputField.getText().toString());
                     result = firstOperand * secondOperand;
-                    firstOperand = result;
-                    clearField();
-                    break;
-            }
-        }
-        if (view.getId() == R.id.division){
-            if (equalCounter.equals(clickCounter.USED))
-                resetCounters();
-            if (plusCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand + secondOperand;
-                firstOperand = result;
-                resetAll();
-                divisionCounter = clickCounter.USED;
-            }
-            else if (minusCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand - secondOperand;
-                firstOperand = result;
-                resetAll();
-                divisionCounter = clickCounter.USED;
-            }
-            else if (multiplyCounter.equals(clickCounter.USED)) {
-                secondOperand = Double.parseDouble(outputField.getText().toString());
-                result = firstOperand * secondOperand;
-                firstOperand = result;
-                resetAll();
-                divisionCounter = clickCounter.USED;
-            }
-            else switch (divisionCounter){
-                case NOT_USED:
-                    divisionCounter = clickCounter.USED;
-                    firstOperand = Double.parseDouble(outputField.getText().toString());
-                    clearField();
-                    break;
-                case USED:
+                    outputField.setText(format.format(result).replace(',', '.'));
+                }
+                if (divisionCounter.equals(clickCounter.USED)) {
+                    equalCounter = clickCounter.USED;
                     secondOperand = Double.parseDouble(outputField.getText().toString());
                     result = firstOperand / secondOperand;
+                    outputField.setText(format.format(result).replace(',', '.'));
+                }
+                break;
+            case USED:
+                if (plusCounter.equals(clickCounter.USED)) {
                     firstOperand = result;
-                    clearField();
-                    break;
-            }
+                    result = firstOperand + secondOperand;
+                    outputField.setText(format.format(result).replace(',', '.'));
+                }
+                if (minusCounter.equals(clickCounter.USED)) {
+                    firstOperand = result;
+                    result = firstOperand - secondOperand;
+                    outputField.setText(format.format(result).replace(',', '.'));
+                }
+                if (multiplyCounter.equals(clickCounter.USED)) {
+                    firstOperand = result;
+                    result = firstOperand * secondOperand;
+                    outputField.setText(format.format(result).replace(',', '.'));
+                }
+                if (divisionCounter.equals(clickCounter.USED)) {
+                    firstOperand = result;
+                    result = firstOperand / secondOperand;
+                    outputField.setText(format.format(result).replace(',', '.'));
+                }
+                break;
+        }
+    }
+    public void plusBtn() {
+        if (equalCounter.equals(clickCounter.USED)) {
+            resetCounters();
+        }
+        if (minusCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand - secondOperand;
+            firstOperand = result;
+            resetAll();
+            plusCounter = clickCounter.USED;
+        }
+        else if (multiplyCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand * secondOperand;
+            firstOperand = result;
+            resetAll();
+            plusCounter = clickCounter.USED;
+        }
+        else if (divisionCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand / secondOperand;
+            firstOperand = result;
+            resetAll();
+            plusCounter = clickCounter.USED;
         }
 
+        else
+            addition(plusCounter.ordinal());
+    }
+    public void minusBtn() {
+        if (equalCounter.equals(clickCounter.USED))
+            resetCounters();
+        if (plusCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand + secondOperand;
+            firstOperand = result;
+            resetAll();
+            minusCounter = clickCounter.USED;
+        }
+        else if (multiplyCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand * secondOperand;
+            firstOperand = result;
+            resetAll();
+            minusCounter = clickCounter.USED;
+        }
+        else if (divisionCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand / secondOperand;
+            firstOperand = result;
+            resetAll();
+            minusCounter = clickCounter.USED;
+        }
+        else
+            subtraction(minusCounter.ordinal());
+    }
+    public void multiplicationBtn() {
+        if (equalCounter.equals(clickCounter.USED))
+            resetCounters();
+        if (plusCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand + secondOperand;
+            firstOperand = result;
+            resetAll();
+            multiplyCounter = clickCounter.USED;
+        }
+        else if (minusCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand - secondOperand;
+            firstOperand = result;
+            resetAll();
+            multiplyCounter = clickCounter.USED;
+        }
+        else if (divisionCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand / secondOperand;
+            firstOperand = result;
+            resetAll();
+            multiplyCounter = clickCounter.USED;
+        }
+        else
+            multiplication(multiplyCounter.ordinal());
+    }
+    public void divisionBtn() {
+        if (equalCounter.equals(clickCounter.USED))
+            resetCounters();
+        if (plusCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand + secondOperand;
+            firstOperand = result;
+            resetAll();
+            divisionCounter = clickCounter.USED;
+        }
+        else if (minusCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand - secondOperand;
+            firstOperand = result;
+            resetAll();
+            divisionCounter = clickCounter.USED;
+        }
+        else if (multiplyCounter.equals(clickCounter.USED)) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand * secondOperand;
+            firstOperand = result;
+            resetAll();
+            divisionCounter = clickCounter.USED;
+        }
+        else
+            division(divisionCounter.ordinal());
+    }
+
+    private void addition(int condition) {
+        if (condition == 0) {
+            plusCounter = clickCounter.USED;
+            firstOperand = Double.parseDouble(outputField.getText().toString());
+            clearField();
+        }
+        if (condition == 1) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand + secondOperand;
+            firstOperand = result;
+            clearField();
+        }
+    }
+    private void subtraction(int condition) {
+        if (condition == 0) {
+            minusCounter = clickCounter.USED;
+            firstOperand = Double.parseDouble(outputField.getText().toString());
+            clearField();
+        }
+        if (condition == 1) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand - secondOperand;
+            firstOperand = result;
+            clearField();
+        }
+    }
+    private void multiplication(int condition) {
+        if (condition == 0) {
+            multiplyCounter = clickCounter.USED;
+            firstOperand = Double.parseDouble(outputField.getText().toString());
+            clearField();
+        }
+        if (condition == 1) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand * secondOperand;
+            firstOperand = result;
+            clearField();
+        }
+    }
+    private void division(int condition) {
+        if (condition == 0) {
+            divisionCounter = clickCounter.USED;
+            firstOperand = Double.parseDouble(outputField.getText().toString());
+            clearField();
+        }
+        if (condition == 1) {
+            secondOperand = Double.parseDouble(outputField.getText().toString());
+            result = firstOperand / secondOperand;
+            firstOperand = result;
+            clearField();
+        }
     }
 }

@@ -45,7 +45,19 @@ public class MainActivity extends AppCompatActivity {
         calculator.negativeSign();
     }
 
-    public void onClickOperator(View view) {
-        calculator.calculation(view);
+    public void onClickEqual(View view) {
+        calculator.equalBtn();
+    }
+    public void onClickPlus(View view) {
+        calculator.plusBtn();
+    }
+    public void onClickMinus(View view) {
+        calculator.minusBtn();
+    }
+    public void onClickMultiplication(View view) {
+        calculator.multiplicationBtn();
+    }
+    public void onClickDivision(View view) {
+        calculator.divisionBtn();
     }
 }
