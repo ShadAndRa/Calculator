@@ -1,16 +1,19 @@
 package com.example.calculator;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
 public class Calculator {
     private final Resources resources;
     private final TextView outputField;
+    private final Toast divisionByZero;
     private final int[] numbers;
     private final DecimalFormat format;
     private final int maxNumLen;
@@ -30,8 +33,9 @@ public class Calculator {
     private double secondOperand;
     private double result;
 
-    Calculator(Resources resources, TextView outputField, int[] numbers) {
-        this.resources = resources;
+    Calculator(Context context, TextView outputField, int[] numbers) {
+        this.resources = context.getResources();
+        this.divisionByZero =  Toast.makeText(context, this.resources.getString(R.string.devision_by_zero),Toast.LENGTH_SHORT);
         this.outputField = outputField;
         this.numbers = numbers;
         this.format = new DecimalFormat("0.########");
@@ -119,6 +123,11 @@ public class Calculator {
                     outputField.setText(format.format(result).replace(',', '.'));
                 }
                 if (divisionCounter.equals(clickCounter.USED)) {
+                    if(Double.parseDouble(outputField.getText().toString()) == 0.0){
+                        divisionByZero.show();
+                        resetAll();
+                        return;
+                    }
                     equalCounter = clickCounter.USED;
                     secondOperand = Double.parseDouble(outputField.getText().toString());
                     result = firstOperand / secondOperand;
@@ -168,6 +177,11 @@ public class Calculator {
             plusCounter = clickCounter.USED;
         }
         else if (divisionCounter.equals(clickCounter.USED)) {
+            if(Double.parseDouble(outputField.getText().toString()) == 0.0){
+                divisionByZero.show();
+                resetAll();
+                return;
+            }
             secondOperand = Double.parseDouble(outputField.getText().toString());
             result = firstOperand / secondOperand;
             firstOperand = result;
@@ -196,6 +210,11 @@ public class Calculator {
             minusCounter = clickCounter.USED;
         }
         else if (divisionCounter.equals(clickCounter.USED)) {
+            if(Double.parseDouble(outputField.getText().toString()) == 0.0){
+                divisionByZero.show();
+                resetAll();
+                return;
+            }
             secondOperand = Double.parseDouble(outputField.getText().toString());
             result = firstOperand / secondOperand;
             firstOperand = result;
@@ -223,6 +242,11 @@ public class Calculator {
             multiplyCounter = clickCounter.USED;
         }
         else if (divisionCounter.equals(clickCounter.USED)) {
+            if(Double.parseDouble(outputField.getText().toString()) == 0.0){
+                divisionByZero.show();
+                resetAll();
+                return;
+            }
             secondOperand = Double.parseDouble(outputField.getText().toString());
             result = firstOperand / secondOperand;
             firstOperand = result;
@@ -306,6 +330,11 @@ public class Calculator {
             clearField();
         }
         if (condition == 1) {
+            if(Double.parseDouble(outputField.getText().toString()) == 0.0){
+                divisionByZero.show();
+                resetAll();
+                return;
+            }
             secondOperand = Double.parseDouble(outputField.getText().toString());
             result = firstOperand / secondOperand;
             firstOperand = result;

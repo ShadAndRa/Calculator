@@ -18,4 +18,5 @@
     <string name="_7" translatable="false">7</string>
     <string name="_8" translatable="false">8</string>
     <string name="_9" translatable="false">9</string>
+    <string name="devision_by_zero">Division by zero is not allowed!</string>
 </resources>

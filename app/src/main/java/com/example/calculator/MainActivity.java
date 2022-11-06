@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.eight,
                 R.id.nine
         };
-        calculator = new Calculator(getResources(), outputField,numbers);
+        calculator = new Calculator(this, outputField, numbers);
     }
 
     public void onClickNum(View view) {
